@@ -1,0 +1,59 @@
+# Dependencias
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Archivos de construcción
+dist/
+dist-ssr/
+*.local
+
+# Archivos temporales
+.temp/
+.tmp/
+.cache/
+
+# Archivos de compilación
+*.tsbuildinfo
+
+# Archivos de cobertura y pruebas
+coverage/
+reports/
+junit.xml
+*.lcov
+
+# Editores y IDEs
+.idea/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+
+# Logs
+logs/
+*.log
+
+# Entorno
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Archivos de bloqueo
+# Descomenta las siguientes líneas si quieres ignorar los archivos de bloqueo
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml 
