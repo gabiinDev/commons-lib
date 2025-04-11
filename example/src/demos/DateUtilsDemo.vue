@@ -7,42 +7,48 @@
         <p>Utilidades para trabajar con fechas y cálculos de tiempo.</p>
       </div>
 
-      <div class="form">
+      <form action="" class="form-vertical">
         <h3>formatDate()</h3>
-
         <div class="form-group">
-          <label for="dummyDate">Fecha:</label>
-          <nf-datepicker
+          <label class="control-label" for="dummyDate">Fecha:</label>
+          <input
+            class="form-control"
+            id="dummyDate"
+            name="dummyDate"
+            type="date"
+            v-model="dateToFormat"
+          />
+          <!-- <nf-datepicker
             id="dummyDate"
             name="dummy"
             v-model="dateToFormat"
             placeholder="Ejemplo: dd/MM/yyyy HH:mm"
-          ></nf-datepicker>
+          ></nf-datepicker> -->
         </div>
         <div class="form-group">
-          <label>Formato:</label>
+          <label class="control-label" for="format">Formato:</label>
           <input
+            class="form-control"
+            id="format"
+            name="format"
             type="text"
             v-model="format"
             placeholder="Ejemplo: dd/MM/yyyy HH:mm"
           />
         </div>
 
-        <div class="result">
-          <div class="code-block">
-            <pre><code>{{ formatDateCode }}</code></pre>
-          </div>
+        <div class="form-group">
+          <pre><code>{{ formatDateCode }}</code></pre>
 
-          <div class="output">
-            <div class="output-label">Resultado:</div>
-            <div class="output-value">{{ formattedDate }}</div>
+          <div class="panel panel-primary">
+            <div class="panel-body">Resultado: {{ formattedDate }}</div>
           </div>
         </div>
-      </div>
+      </form>
 
-      <div class="docs">
+      <section class="col-md-12">
         <h4>Parámetros</h4>
-        <table>
+        <table class="table table-bordered table-hover">
           <thead>
             <tr>
               <th>Nombre</th>
@@ -67,40 +73,45 @@
             </tr>
           </tbody>
         </table>
-      </div>
+      </section>
     </div>
 
-    <div class="days-difference-section">
+    <div class="col-md-12">
       <h3>daysDifference()</h3>
 
-      <div class="demo-container">
-        <div class="inputs">
-          <div class="input-group">
-            <label>Fecha inicio:</label>
-            <input type="date" v-model="startDate" />
-          </div>
-
-          <div class="input-group">
-            <label>Fecha fin:</label>
-            <input type="date" v-model="endDate" />
-          </div>
+      <form action="" class="form-vertical">
+        <div class="form-group">
+          <label class="control-label" for="startDate">Fecha inicio:</label>
+          <input
+            class="form-control"
+            id="startDate"
+            name="startDate"
+            type="date"
+            v-model="startDate"
+          />
+        </div>
+        <div class="form-group">
+          <label class="control-label" for="endDate">Fecha fin:</label>
+          <input
+            class="form-control"
+            id="endDate"
+            name="endDate"
+            type="date"
+            v-model="endDate"
+          />
         </div>
 
-        <div class="result">
-          <div class="code-block">
-            <pre><code>{{ daysDifferenceCode }}</code></pre>
-          </div>
-
-          <div class="output">
-            <div class="output-label">Resultado:</div>
-            <div class="output-value">{{ daysDiff }} días</div>
+        <div class="form-group">
+          <pre><code>{{ daysDifferenceCode }}</code></pre>
+          <div class="panel panel-primary">
+            <div class="panel-body">Resultado: {{ daysDiff }} días</div>
           </div>
         </div>
-      </div>
+      </form>
 
-      <div class="docs">
+      <section class="col-md-12">
         <h4>Parámetros</h4>
-        <table>
+        <table class="table table-bordered table-hover">
           <thead>
             <tr>
               <th>Nombre</th>
@@ -121,7 +132,7 @@
             </tr>
           </tbody>
         </table>
-      </div>
+      </section>
     </div>
   </div>
 </template>
