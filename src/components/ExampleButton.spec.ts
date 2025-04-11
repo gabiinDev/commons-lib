@@ -13,42 +13,42 @@ describe("ExampleButton", () => {
    * - El botón debe tener la clase example-button
    */
   it("renderiza correctamente", () => {
-    const wrapper = mount(ExampleButton, {
+    const wrapper = mount(ExampleButton as any, {
       slots: {
         default: "Botón de test",
       },
     });
 
     expect(wrapper.text()).toBe("Botón de test");
-    expect(wrapper.classes()).toContain("example-button");
+    expect(wrapper.classes()).toContain("btn");
   });
 
   /**
    * Verifica que se aplique la clase is-primary cuando la prop primary es true
    * - El botón debe tener la clase is-primary
    */
-  it("aplica la clase is-primary cuando se pasa la prop primary", () => {
-    const wrapper = mount(ExampleButton, {
+  it("aplica la clase btn-primary cuando se pasa la prop primary", () => {
+    const wrapper = mount(ExampleButton as any, {
       propsData: {
         primary: true,
       },
     });
 
-    expect(wrapper.classes()).toContain("is-primary");
+    expect(wrapper.classes()).toContain("btn-primary");
   });
 
   /**
    * Verifica que NO se aplique la clase is-primary cuando primary es false
    * - El botón NO debe tener la clase is-primary
    */
-  it("no aplica la clase is-primary cuando primary es false", () => {
-    const wrapper = mount(ExampleButton, {
+  it("no aplica la clase btn-primary cuando primary es false", () => {
+    const wrapper = mount(ExampleButton as any, {
       propsData: {
         primary: false,
       },
     });
 
-    expect(wrapper.classes()).not.toContain("is-primary");
+    expect(wrapper.classes()).not.toContain("btn-primary");
   });
 
   /**
@@ -56,7 +56,7 @@ describe("ExampleButton", () => {
    * - El botón debe tener el atributo HTML disabled
    */
   it("aplica el atributo disabled cuando se pasa la prop disabled", () => {
-    const wrapper = mount(ExampleButton, {
+    const wrapper = mount(ExampleButton as any, {
       propsData: {
         disabled: true,
       },
@@ -72,7 +72,7 @@ describe("ExampleButton", () => {
    * - El evento debe incluir un contador (count) que se incrementa con cada clic
    */
   it("emite el evento click con la información correcta", async () => {
-    const wrapper = mount(ExampleButton);
+    const wrapper = mount(ExampleButton as any);
 
     // Primer clic
     await wrapper.trigger("click");
@@ -94,7 +94,7 @@ describe("ExampleButton", () => {
    * - No debería emitir ningún evento cuando se hace clic en un botón deshabilitado
    */
   it("no emite el evento click cuando está deshabilitado", async () => {
-    const wrapper = mount(ExampleButton, {
+    const wrapper = mount(ExampleButton as any, {
       propsData: {
         disabled: true,
       },

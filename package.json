@@ -1,6 +1,6 @@
 {
   "name": "vue-commons-lib",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Librería de componentes y utilidades para Vue 2.7.16 con TypeScript",
   "type": "module",
   "main": "dist/index.js",
@@ -9,6 +9,14 @@
     ".": {
       "import": "./dist/index.js",
       "types": "./dist/index.d.ts"
+    },
+    "./components": {
+      "import": "./dist/components/index.js",
+      "types": "./dist/components/index.d.ts"
+    },
+    "./utils": {
+      "import": "./dist/utils/index.js",
+      "types": "./dist/utils/index.d.ts"
     }
   },
   "files": [
