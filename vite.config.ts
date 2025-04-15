@@ -2,10 +2,14 @@ import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue2";
 import { resolve } from "path";
 import dts from "vite-plugin-dts";
+import { viteExternalsPlugin } from "vite-plugin-externals";
 
 export default defineConfig({
   plugins: [
     vue(),
+    viteExternalsPlugin({
+      vue: "Vue",
+    }),
     dts({
       insertTypesEntry: true,
       outDir: "dist",

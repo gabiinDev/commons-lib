@@ -1,6 +1,6 @@
 <template>
-  <div class="row">
-    <div class="col-md-12">
+  <NfRow>
+    <NfCol :md="12">
       <h2>ExampleButton</h2>
 
       <div class="description">
@@ -9,24 +9,24 @@
           eventos.
         </p>
       </div>
-
+      <h1>Ejemplos básicos</h1>
       <div class="examples">
-        <h3>Ejemplos básicos</h3>
-        <div class="panel panel-default">
-          <div class="panel-body">
-            <h4>Botón estándar</h4>
+        <NfPanel type="default">
+          <template #header>Botón estándar</template>
+          <template #body>
+            <h4></h4>
             <example-button @click="handleClick"> Botón Normal </example-button>
             <div style="margin-top: 10px">
               <pre>
 &lt;example-button&gt;Botón Normal&lt;/example-button&gt;</pre
               >
             </div>
-          </div>
-        </div>
+          </template>
+        </NfPanel>
 
-        <div class="panel panel-default">
-          <div class="panel-body">
-            <h4>Botón primario</h4>
+        <NfPanel type="primary">
+          <template #header>Botón primario</template>
+          <template #body>
             <example-button primary @click="handleClick">
               Botón Primario
             </example-button>
@@ -35,11 +35,12 @@
 &lt;example-button primary&gt;Botón Primario&lt;/example-button&gt;</pre
               >
             </div>
-          </div>
-        </div>
-        <div class="panel panel-default">
-          <div class="panel-body">
-            <h4>Botón deshabilitado</h4>
+          </template>
+        </NfPanel>
+
+        <NfPanel type="danger">
+          <template #header>Botón deshabilitado</template>
+          <template #body>
             <example-button disabled @click="handleClick">
               Botón Deshabilitado
             </example-button>
@@ -48,8 +49,8 @@
 &lt;example-button disabled&gt;Botón Deshabilitado&lt;/example-button&gt;</pre
               >
             </div>
-          </div>
-        </div>
+          </template>
+        </NfPanel>
       </div>
 
       <div class="panel panel-primary">
@@ -137,37 +138,23 @@
           </table>
         </div>
       </div>
-    </div>
-  </div>
+    </NfCol>
+  </NfRow>
 </template>
 
-<script lang="ts">
-import { defineComponent, ref } from "vue";
-import ExampleButton from "@/components/ExampleButton.vue";
+<script setup lang="ts">
+import { ref } from "vue";
+import { ExampleButton, NfRow, NfCol, NfPanel } from "@/ui/components";
 
-export default defineComponent({
-  name: "ButtonDemo",
-  components: {
-    ExampleButton,
-  },
-  setup() {
-    const eventLog = ref<string[]>([]);
+const eventLog = ref<string[]>([]);
 
-    const handleClick = (data: { event: MouseEvent; count: number }) => {
-      eventLog.value.unshift(
-        `Click #${data.count} - ${new Date().toLocaleTimeString()}`
-      );
-    };
+const handleClick = (data: { event: MouseEvent; count: number }) => {
+  eventLog.value.unshift(
+    `Click #${data.count} - ${new Date().toLocaleTimeString()}`
+  );
+};
 
-    const clearLog = () => {
-      eventLog.value = [];
-    };
-
-    return {
-      eventLog,
-      handleClick,
-      clearLog,
-    };
-  },
-});
+const clearLog = () => {
+  eventLog.value = [];
+};
 </script>
